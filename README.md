@@ -33,8 +33,9 @@ has very permissive firewall rules by default. If you are having an issue, try o
 
 ### Distro Specific Instructions/Info
 #### Ubuntu 16.04
-Ubuntu 16.04 does not ship with a system python installed (why this is true, I don't think I will ever understand.) You must
-install it manually with `apt-get install python` before you run the playbook.
+Ubuntu 16.04 defaults to installing Python 3 (packaged as `python3`). Ansible
+[requires](http://docs.ansible.com/ansible/faq.html#how-do-i-handle-python-pathing-not-having-a-python-2-x-in-usr-bin-python-on-a-remote-machine) that you also install Python 2 (packaged as `python`), by running `apt-get install python` before you run the playbook.
+
 #### RHEL 6.8
 The playbook completely disables the `iptables` firewall. This is not strictly necessary, but I hate `iptables` with my
  whole body and I was tired of fighting with it. If you want or need it, you should re-enable it, but none of the required
